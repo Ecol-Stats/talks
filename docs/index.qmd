@@ -2,8 +2,8 @@
 title: "Talks"
 ---
 
-| Talk | Topic | date |
-|------|-------|------|
-|      |       |      |
-|      |       |      |
-|      |       |      |
+| Talk | Event | date |
+|----|----|----|
+| **The Threads of Change:** How Citizen Science is Reshaping a Data-Driven Future for Biodiversity Conservation | UofG **Data Science and AI Festival** | 27th to 29th October, 2025, Glasgow UK. |
+|  |  |  |
+|  |  |  |

@@ -1,16 +1,9 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Talks",
     "section": "",
-    "text": "Talk\nTopic\ndate"
+    "text": "Talk\nEvent\ndate\n\n\n\n\nThe Threads of Change: How Citizen Science is Reshaping a Data-Driven Future for Biodiversity Conservation\nUofG Data Science and AI Festival\n27th to 29th October, 2025, Glasgow UK."
   }
 ]
