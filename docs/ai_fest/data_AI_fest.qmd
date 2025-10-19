@@ -1,0 +1,308 @@
+---
+title: "The Threads of Change"
+subtitle: "How Citizen Science is Reshaping a Data-Driven Future for Biodiversity Conservation"
+author:
+  - name: Jafet Belmont 
+    email: Jafet.BelmontOsuna@glasgow.ac.uk 
+    affiliations: School of Mathematics and Statistics
+title-slide-attributes: 
+  data-background-image: uog_cloistures2.jpg
+format:
+  revealjs:
+    margin: 0
+    auto-play-media: true
+    logo:  UofG.png
+    theme: custom.scss
+    header-includes: |
+      <script src="custom.js" type="application/javascript"></script>
+slide-number: true
+include-in-header: 
+  text: |
+    <style>
+      .custom-small table {
+        font-size: .8em
+      }
+      .custom-tiny table {
+        font-size: .6em
+      }
+    </style>
+date: last-modified
+date-format: "DD MMM, YYYY"
+execute: 
+  eval: true
+  echo: true
+filters:
+  - shinylive
+---
+
+## Monitoring species distributions {background-image="city_plan.gif"}
+
+> Imagine planning a city without knowing where people live. This is exactly what we risk doing in conservation if we don't accurately map where species exist---and why.
+
+## Monitoring species distributions
+
+::: {style="height: 50px;"}
+:::
+
+::::: columns
+::: {.column width="40%"}
+-   Biodiversity monitoring programs have become essential to **understand** the spatial distribution of species.
+
+-   The analysis of species distribution data is **challenging**
+:::
+
+::: {.column width="60%"}
+![](images/ecological_framework.png){fig-align="center" width="100%" height="100%"}
+:::
+:::::
+
+## The Challenge of Data
+
+-   The information available for species distributions models is radically changing
+
+-   New opportunities for surveying wildlife in space and time.
+
+![](images/techs.png){fig-align="center"}
+
+## The Challenge of Data {.smaller}
+
+::: {style="height: 50px;"}
+:::
+
+::::: columns
+::: {.column width="40%"}
+-   As the **volume** of recorded ecological data continues to grow, so does the need for **computationally efficient methods** for answering complex ecological questions.
+    -   What are the environmental drivers of species distributions?
+    -   Whats is the impact that human activities have on biodiversity?
+    -   Can we predict how species distribution and biodiversity will be affected by climate change?
+:::
+
+::: {.column width="60%"}
+![](NBN_Trust_Growth.gif){fig-align="center"}
+:::
+:::::
+
+## Planned Survey Data {.smaller auto-animate="true"}
+
+For many years, **structured data** has been the one on the most important sources of information used by researchers to analyse species distributions.
+
+-   **Structured data** involves constant monitoring schemes using standardised methods at sites on a regular basis.
+
+![](images/survey_data.png){fig-align="center"}
+
+## Planned **Structured** Survey Data {.smaller auto-animate="true"}
+
+For many years, **structured data** has been the one on the most important sources of information used by researchers to analyse species distributions.
+
+-   **Structured data** involves constant monitoring schemes using standardised methods at sites on a regular basis.
+
+-   These are **expensive** to collect and tend to be geographically and temporally restricted.
+
+![](images/meme1.png){fig-align="center"}
+
+## Citizen Science **Unstructured** Data {.smaller auto-animate="true"}
+
+**Unstructured data** constitute the majority of available information nowadays.
+
+-   **Citizen science** projects offer a cost-effective solution to investigate species distributions at large spatial and temporal scales.
+
+![](images/CS_apps.png){fig-align="center"}
+
+## Citizen Science Data {.smaller auto-animate="true"}
+
+**Unstructured data** constitute the majority of available information nowadays.
+
+-   **Citizen science** projects offer a cost-effective solution to investigate species distributions at large spatial and temporal scales.
+-   Harnessing the power of CS data is not an easy task!
+
+| Advantages 😄👍 | Disadvantages 😔👎 |
+|----------------------------------------|--------------------------------|
+| Extensive taxonomic, spatial and temporal coverage. | Under-reporting of rare and inconspicuous species. |
+| Eye-catching species that are easily identifiable by participants. | Varying recording skills and uneven sampling effort. |
+
+::: fragment
+This is where data science and statistics can help!
+:::
+
+## Sampling Bias in CS opportunistic data {.smaller}
+
+Large volumes of CS data come from **Opportunistic surveys** where sampling effort is **biased** across space and time.
+
+-   People visit more certain places than others.
+
+![Elevation versus sampling effort (obtained through the Pl\@net Net App) in the French mediterranean region.](images/sampling_eff_ex.png){fig-align="center"}
+
+::: incremental
+-   Small populations at lower elevation could be over-sampled.
+
+-   If we assume sampling is evenly distributed, species occupancy at higher elevation would be under-estimated
+:::
+
+## Correcting for sampling bias
+
+-   The true locations where a species occur are a realization of a continuous spatial process that describe the density of the occurrences.
+
+![](images/lambda_true.png){fig-align="center"}
+
+## Correcting for sampling bias {.smaller auto-animate="true"}
+
+-   The true locations where a species occur are a realization of a continuous spatial process that describe the density of the occurrences.
+
+-   The true point pattern is partially observed due to **accessibility constrains** reflected by an uneven sampling effort.
+
+![](images/tired_hiker.jpg){fig-align="center"}
+
+## Correcting for sampling bias {.smaller auto-animate="true"}
+
+-   The true locations where a species occur are a realization of a continuous spatial process that describe the density of the occurrences.
+
+-   The true locations are partially observed due to **accessibility constrains** reflected by an uneven sampling effort.
+
+    $$
+        \begin{aligned}
+    \text{observed process}&=\text{true process}\times \text{probability of recording}\\
+    f(\text{probability of recording}) &= \text{sampling bias proxy}
+    \end{aligned}
+    $$
+
+::::: columns
+::: {.column width="50%"}
+Theoretical frameworks and modern statistical software allows us to estimate the probability that a individual is recorded
+:::
+
+::: {.column width="50%"}
+![](images/lambda_obs.png){fig-align="center" width="100%" height="100%"}
+:::
+:::::
+
+## Case Study: Modelling the Distribution of the black-throated blue warbler in Pennsylvania, USA. {.smaller}
+
+-   Occurrence data for the Black-throated blue warbler (*Setophaga caerulescens*) in Pennsylvania, USA are available from:
+
+-   Observations reported by citizen scientists to the **eBird** platform in 2008.
+
+![](images/blue_warbler.png){fig-align="center"}
+
+## Modelling Black-throated blue warbler: Opportunistic Data {.smaller auto-animate="true"}
+
+-   `eBird` citizen science data are usually biased due to **uneven sampling effort**.
+
+![Locations where other 17 species of birds have been reported to `eBird` in 2008 along with the number of visits to a given location.](images/effort_map1.png){fig-align="center"}
+
+## Modelling Black-throated blue warbler: Opportunistic Data {.smaller auto-animate="true"}
+
+-   `eBird` citizen science data are usually biased due to **uneven sampling effort**.
+
+![Locations where other 17 species of birds have been reported to `eBird` in 2008 along with the number of visits to a given location.](images/effort_map2.png){fig-align="center"}
+
+## Modelling Black-throated blue warbler: Opportunistic Data {.smaller auto-animate="true"}
+
+-   `eBird` citizen science data are usually biased due to **uneven sampling effort**.
+-   Use the locations where opportunistic encounters occurred as a proxy of sampling intensity
+
+![Locations 17 species of birds have been reported to eBird in 2008 along with the number of visits to a given location. The orange points indicate the locations where the Black-throated blue warbler has been observed.](images/effort_map3.png){fig-align="center"}
+
+## Predictions species density
+
+![](images/thinned_PP_maps.png){fig-align="center" width="724"}
+
+## The problem with detection {auto-animate="true"}
+
+![](images/findwally1.png){fig-align="center"}
+
+## The problem with detection {auto-animate="true"}
+
+![](images/findwally2.png){fig-align="center"}
+
+## Possible biases due to imperfect detection
+
+::: {style="height: 50px;"}
+:::
+
+::: incremental
+-   Underestimation of species distribution
+
+-   Bias of the estimated relationship with covariates
+
+-   Predictive models might reflect detection instead of occurrence
+:::
+
+## The Occupancy model for survey data {.smaller}
+
+**Basic idea:** Data contain information about two processes:
+
+-   The species occupancy (ecological process)
+
+![](images/occ_mod1.png){fig-align="center"}
+
+## The Occupancy Model for Species Distributions {auto-animate="true"}
+
+**Basic idea:** Data contain information about two processes:
+
+-   The species occupancy (ecological process)
+-   The detection (observation process)
+
+![](images/occ_mod2.png){fig-align="center"}
+
+## Modelling Ringlet butterfly distribution
+
+Study distribution of Ringlet butterfly using CS data from the UKBMS obtained from the Butterflies for the New Millennium (BNM) recording scheme.
+
+![](images/ringlet.jpg){fig-align="center" width="330"}
+
+## Modelling Ringlet butterfly distribution
+
+$$
+\begin{aligned}
+\text{True Distribution } \rightarrow \text{Occupancy probability per year} \\
+\text{Observed Detection } \rightarrow \text{Detection probability as a function of Date } 
+\end{aligned}
+$$
+
+::::: columns
+::: {.column width="50%"}
+![](images/Model1_time_effect.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](images/model1_prob_detection.png){fig-align="center"}
+:::
+:::::
+
+## Modelling Ringlet butterfly distribution
+
+**Predicted Probabilities**
+
+![](images/model2_space.png){fig-align="center"}
+
+## A Collective Journey: You, Science, and Nature {.smaller}
+
+-   **We are witnessing a revolution in how we understand life on Earth.**
+-   **Fueled by a global community:** Millions of observations from people all over the world.
+-   **Powered by innovation:** This unprecedented wave of information has inspired scientists to create entirely new analytical tools to understand it.
+
+::::: columns
+::: {.column width="50%"}
+**This partnership is unlocking:**
+
+-   🗺️ Real-time maps of species on the move.
+
+-   🔬 Faster discovery of new species and at-risk populations.
+
+-   📈 Deeper insights into the health of our planet.
+:::
+
+::: {.column width="50%"}
+![](images/barswa-abundance-map-weekly-2021-en-1024.gif){fig-align="center" width="596"}
+:::
+:::::
+
+## A Collective Journey: You, Science, and Nature
+
+**This is where the journey continues...**
+
+-   **For Scientists:** To develop tools that are not just powerful, but also **accessible**.
+
+-   **For Everyone:** To stay curious, participate, and help ask the next big questions.
+
+> **The key takeaway:** When public passion meets scientific inquiry, our knowledge grows exponentially.

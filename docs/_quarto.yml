@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+  - index.qmd
+  - about.qmd
+  - slides/data_AI_fest.qmd
+
+website:
+  title: Talks
+  navbar:
+    logo: UofG.png
+    left:
+    - href: index.qmd
+      text: Index
+    - about.qmd
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: true
+editor: visual
+
